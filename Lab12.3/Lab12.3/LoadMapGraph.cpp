@@ -1,27 +1,8 @@
 #include "stdafx.h"
 #include "LoadMapGraph.h"
 
-
-CLoadMapGraph::CLoadMapGraph(std::string const& fileName)
-{
-	ReadFromFile(fileName);
-	FindHeavierLoads();
-}
-
-
-CLoadMapGraph::~CLoadMapGraph()
-{
-}
-
-void CLoadMapGraph::OutputInFile(std::string const & fileName)
-{
-	std::ofstream output(fileName);
-	for (int i = 1; i < m_towns.size(); ++i)
-	{
-		output << m_towns[i] << std::endl;
-	}
-}
-
+Conflict for Stepan Domasevich
+this is commit for education on pull requests
 
 void CLoadMapGraph::InitGraph()
 {
