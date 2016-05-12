@@ -35,17 +35,14 @@ bool CCrossChecker::IsCrossing()
 	{
 		return true;
 	}
-
-	auto X1 = (m_secondLine.endPos.x - m_secondLine.beginPos.x) * (m_firstLine.beginPos.y - m_secondLine.beginPos.y)
-		- (m_secondLine.endPos.y - m_secondLine.beginPos.y) * (m_firstLine.beginPos.x - m_secondLine.beginPos.x);
-	auto X2 = (m_secondLine.endPos.x - m_secondLine.beginPos.x) * (m_firstLine.endPos.y - m_secondLine.beginPos.y)
-		- (m_secondLine.endPos.y - m_secondLine.beginPos.y) * (m_firstLine.endPos.x - m_secondLine.beginPos.x);
-
-	auto X3 = (m_firstLine.endPos.x - m_firstLine.beginPos.x) * (m_secondLine.beginPos.y - m_firstLine.beginPos.y)
-		- (m_firstLine.endPos.y - m_firstLine.beginPos.y) * (m_secondLine.beginPos.x - m_firstLine.beginPos.x);
-	auto X4 = (m_firstLine.endPos.x - m_firstLine.beginPos.x) * (m_secondLine.endPos.y - m_firstLine.beginPos.y)
-		- (m_firstLine.endPos.y - m_firstLine.beginPos.y) * (m_secondLine.endPos.x - m_firstLine.beginPos.x);
-
+	auto fBegin = m_firstLine.beginPos;
+	auto fEnd = m_firstLine.endPos;
+	auto sBegin = m_secondLine.beginPos;
+	auto sEnd = m_secondLine.endPos;
+	auto X1 = (sEnd.x - sBegin.x) * (fBegin.y - sBegin.y) - (sEnd.y - sBegin.y) * (fBegin.x - sBegin.x);
+	auto X2 = (sEnd.x - sBegin.x) * (fEnd.y - sBegin.y)	- (sEnd.y - sBegin.y) * (fEnd.x - sBegin.x);
+	auto X3 = (fEnd.x - fBegin.x) * (sBegin.y - fBegin.y) - (fEnd.y - fBegin.y) * (sBegin.x - fBegin.x);
+	auto X4 = (fEnd.x - fBegin.x) * (sEnd.y - fBegin.y)	- (fEnd.y - fBegin.y) * (sEnd.x - fBegin.x);
 	return ((X1 * X2) < 0) && ((X3 * X4) < 0);
 }
 

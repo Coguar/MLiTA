@@ -3,14 +3,11 @@
 
 struct Point
 {
-	Point()
-	{
-	}
+	Point(){}
 	Point(int const& xPos, int const& yPos)
 		: x(xPos)
 		, y(yPos)
-	{
-	}
+	{}
 	const bool operator== (Point const& otherPoint);
 	int x;
 	int y;
@@ -18,14 +15,11 @@ struct Point
 
 struct LineSegment
 {
-	LineSegment()
-	{
-	}
+	LineSegment(){}
 	LineSegment(Point const& begin, Point const& end)
 		: beginPos(begin)
 		, endPos(end)
-	{
-	}
+	{}
 	Point beginPos;
 	Point endPos;
 };
