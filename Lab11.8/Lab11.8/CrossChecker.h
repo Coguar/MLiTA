@@ -4,7 +4,7 @@
 struct Point
 {
 	Point(){}
-	Point(int const& xPos, int const& yPos)
+	Point(int xPos, int yPos)
 		: x(xPos)
 		, y(yPos)
 	{}
@@ -29,7 +29,7 @@ class CCrossChecker
 public:
 	CCrossChecker() {};
 	void ReadDataFromFile(std::string const& fileName);
-	void WriteAnswerIntoFile(bool const& isCrossing);
+	void WriteAnswerIntoFile(bool isCrossing);
 	void SetLineSegments(LineSegment const& fLine, LineSegment const& sLine);
 	bool IsCrossing();
 
